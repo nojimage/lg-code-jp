@@ -1,0 +1,33 @@
+{
+    "name": "nojimage/local-gov-code-util",
+    "description": "Utitlity for Local government code",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3",
+        "nojimage/local-gov-code-jp": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8|^5.7|^6.5|^7.0",
+        "squizlabs/php_codesniffer": "^2.9|^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nojimage\\LocalGovCode\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nojimage\\LocalGovCode\\TestCase\\": "tests/TestCase/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "test": "phpunit",
+        "cs-check": "phpcs -ps --extensions=php --standard=PSR2 ./src ./tests",
+        "cs-fix": "phpcbf -p --extensions=php --standard=PSR2 ./src ./tests"
+    }
+}
