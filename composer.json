@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.3",
-        "nojimage/local-gov-code-jp": "^1.0"
+        "nojimage/local-gov-code-jp": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8|^5.7|^6.5|^7.0",
