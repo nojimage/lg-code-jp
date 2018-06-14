@@ -1,6 +1,6 @@
 {
-    "name": "nojimage/local-gov-code-util",
-    "description": "Utitlity for Local government code",
+    "name": "nojimage/lg-code-jp",
+    "description": "A utility tools for local government code.",
     "type": "library",
     "license": "MIT",
     "require": {
