@@ -47,6 +47,34 @@ class JsonTest extends TestCase
     }
 
     /**
+     * Test construct with absolute file path
+     */
+    public function testCreateWithAbsoluteFilepath()
+    {
+        $filepath = $expected = TEST_DIR . '/Fixture/data.json';
+
+        $ds = new Json($filepath);
+
+        $this->assertSame($expected, $ds->getFilepath());
+    }
+
+    /**
+     * Test construct with relative file path
+     *
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage File not found: ../../Fixture/data.json
+     */
+    public function testCreateWithRelativeFilepath()
+    {
+        $filepath = '../../Fixture/data.json';
+        $expected = TEST_DIR . '/Fixture/data.json';
+
+        $ds = new Json($filepath);
+
+        $this->assertSame($expected, $ds->getFilepath());
+    }
+
+    /**
      * @covers Nojimage\LocalGovCode\Datasource\Json::findByCode
      */
     public function testFindByCode()

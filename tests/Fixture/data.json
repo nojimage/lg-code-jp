@@ -1,0 +1,110 @@
+[
+    {
+        "type": "prefecture",
+        "code": "010006",
+        "name": "北海道",
+        "kana": "ほっかいどう",
+        "pref_code": "010006",
+        "pref_name": "北海道",
+        "pref_kana": "ほっかいどう"
+    },
+    {
+        "type": "prefecture",
+        "code": "020001",
+        "name": "青森県",
+        "kana": "あおもりけん",
+        "pref_code": "020001",
+        "pref_name": "青森県",
+        "pref_kana": "あおもりけん"
+    },
+    {
+        "type": "prefecture",
+        "code": "030007",
+        "name": "岩手県",
+        "kana": "いわてけん",
+        "pref_code": "030007",
+        "pref_name": "岩手県",
+        "pref_kana": "いわてけん"
+    },
+    {
+        "type": "city",
+        "code": "011002",
+        "name": "北海道札幌市",
+        "kana": "ほっかいどうさっぽろし",
+        "city_code": "011002",
+        "city_name": "札幌市",
+        "city_kana": "さっぽろし",
+        "pref_code": "010006",
+        "pref_name": "北海道",
+        "pref_kana": "ほっかいどう"
+    },
+    {
+        "type": "city",
+        "code": "012025",
+        "name": "北海道函館市",
+        "kana": "ほっかいどうはこだてし",
+        "city_code": "012025",
+        "city_name": "函館市",
+        "city_kana": "はこだてし",
+        "pref_code": "010006",
+        "pref_name": "北海道",
+        "pref_kana": "ほっかいどう"
+    },
+    {
+        "type": "city",
+        "code": "012033",
+        "name": "北海道小樽市",
+        "kana": "ほっかいどうおたるし",
+        "city_code": "012033",
+        "city_name": "小樽市",
+        "city_kana": "おたるし",
+        "pref_code": "010006",
+        "pref_name": "北海道",
+        "pref_kana": "ほっかいどう"
+    },
+    {
+        "type": "ward",
+        "code": "011011",
+        "name": "北海道札幌市中央区",
+        "kana": "ほっかいどうさっぽろしちゅうおうく",
+        "ward_code": "011011",
+        "ward_name": "中央区",
+        "ward_kana": "ちゅうおうく",
+        "city_code": "011002",
+        "city_name": "札幌市",
+        "city_kana": "さっぽろし",
+        "pref_code": "010006",
+        "pref_name": "北海道",
+        "pref_kana": "ほっかいどう"
+    },
+    {
+        "type": "ward",
+        "code": "011029",
+        "name": "北海道札幌市北区",
+        "kana": "ほっかいどうさっぽろしきたく",
+        "ward_code": "011029",
+        "ward_name": "北区",
+        "ward_kana": "きたく",
+        "city_code": "011002",
+        "city_name": "札幌市",
+        "city_kana": "さっぽろし",
+        "pref_code": "010006",
+        "pref_name": "北海道",
+        "pref_kana": "ほっかいどう"
+    },
+    {
+        "type": "ward",
+        "code": "011037",
+        "name": "北海道札幌市東区",
+        "kana": "ほっかいどうさっぽろしひがしく",
+        "ward_code": "011037",
+        "ward_name": "東区",
+        "ward_kana": "ひがしく",
+        "city_code": "011002",
+        "city_name": "札幌市",
+        "city_kana": "さっぽろし",
+        "pref_code": "010006",
+        "pref_name": "北海道",
+        "pref_kana": "ほっかいどう"
+    }
+]

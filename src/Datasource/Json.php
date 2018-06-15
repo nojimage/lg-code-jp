@@ -46,16 +46,11 @@ class Json implements DatasourceInterface
     /**
      * constructor
      *
-     * @param string $filename
-     * @param string $path
+     * @param string $filepath
      */
-    public function __construct($filename, $path = null)
+    public function __construct($filepath)
     {
-        if ($path === null) {
-            $path = $this->getVendorPath() . self::DATA_PACKAGENAME;
-        }
-
-        $this->setFilepath($filename, $path);
+        $this->setFilepath($filepath);
 
         $this->loadFile();
     }
@@ -73,22 +68,26 @@ class Json implements DatasourceInterface
     /**
      * Set filepath
      *
-     * @param string $filename
-     * @param string $path
+     * @param string $filepath
      * @return void
      * @throws InvalidArgumentException
      */
-    protected function setFilepath($filename, $path)
+    protected function setFilepath($filepath)
     {
+        $filepath = str_replace(DIRECTORY_SEPARATOR, '/', $filepath);
 
-        $path = rtrim($path, '/') . '/';
-        $filepath = realpath($path . $filename);
-
-        if (!$filepath || !is_file($filepath)) {
-            throw new InvalidArgumentException(sprintf('File not found: %s', $path . $filename));
+        // If $filepath is filename only, set default data dir.
+        if (strpos($filepath, '/') === false) {
+            $filepath = $this->getVendorPath() . self::DATA_PACKAGENAME . '/' . $filepath;
         }
 
-        $this->filepath = $filepath;
+        $realFilepath = realpath($filepath);
+
+        if (!$realFilepath || !is_file($realFilepath)) {
+            throw new InvalidArgumentException(sprintf('File not found: %s', $filepath));
+        }
+
+        $this->filepath = $realFilepath;
     }
 
     /**
