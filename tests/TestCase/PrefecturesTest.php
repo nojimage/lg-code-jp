@@ -34,7 +34,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Prefectures::createFromJson
+     * Nojimage\LocalGovCode\Prefectures::createFromJson
      */
     public function testCreateFromJson()
     {
@@ -44,7 +44,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::getInstance
+     * Nojimage\LocalGovCode\Repository::getInstance
      * @todo   Implement testGetInstance().
      */
     public function testGetInstance()
@@ -57,7 +57,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::setDatasource
+     * Nojimage\LocalGovCode\Repository::setDatasource
      */
     public function testSetDatasource()
     {
@@ -66,7 +66,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::setCollectionDecorator
+     * Nojimage\LocalGovCode\Repository::setCollectionDecorator
      */
     public function testSetCollectionDecorator()
     {
@@ -80,7 +80,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::setEntityDecorator
+     * Nojimage\LocalGovCode\Repository::setEntityDecorator
      */
     public function testSetEntityDecorator()
     {
@@ -99,7 +99,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::get
+     * Nojimage\LocalGovCode\Repository::get
      */
     public function testGet()
     {
@@ -111,7 +111,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::get
+     * Nojimage\LocalGovCode\Repository::get
      *
      * @expectedException \Nojimage\LocalGovCode\Exception\CodeNotFoundException
      * @expectedExceptionMessage The specified code can not be found.
@@ -122,7 +122,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::getByName
+     * Nojimage\LocalGovCode\Repository::getByName
      */
     public function testGetByName()
     {
@@ -134,7 +134,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::getByName
+     * Nojimage\LocalGovCode\Repository::getByName
      *
      * @expectedException \Nojimage\LocalGovCode\Exception\NameNotFoundException
      * @expectedExceptionMessage The specified name can not be found.
@@ -145,7 +145,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::getCode
+     * Nojimage\LocalGovCode\Repository::getCode
      */
     public function testGetCode()
     {
@@ -153,7 +153,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::getName
+     * Nojimage\LocalGovCode\Repository::getName
      */
     public function testGetName()
     {
@@ -161,7 +161,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::isValidCode
+     * Nojimage\LocalGovCode\Repository::isValidCode
      */
     public function testIsValidCode()
     {
@@ -170,7 +170,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::isValidName
+     * Nojimage\LocalGovCode\Repository::isValidName
      */
     public function testIsValidName()
     {
@@ -179,7 +179,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::find
+     * Nojimage\LocalGovCode\Repository::find
      */
     public function testFind()
     {
@@ -195,7 +195,7 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::findByName
+     * Nojimage\LocalGovCode\Repository::findByName
      */
     public function testFindByName()
     {

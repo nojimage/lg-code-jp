@@ -38,7 +38,10 @@ abstract class Repository
      * @param EntityDecoratorInferface $entityDecorator
      * @return Repository
      */
-    abstract public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null);
+    abstract public static function createFromJson(
+        CollectionDecoratorInferface $collectionDecorator = null,
+        EntityDecoratorInferface $entityDecorator = null
+    );
 
     /**
      * Create repository
@@ -48,8 +51,11 @@ abstract class Repository
      * @param EntityDecoratorInferface $entityDecorator
      * @return Repository
      */
-    public static function getInstance(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null)
-    {
+    public static function getInstance(
+        DatasourceInterface $datasource,
+        CollectionDecoratorInferface $collectionDecorator = null,
+        EntityDecoratorInferface $entityDecorator = null
+    ) {
         $class = get_called_class();
 
         return new $class($datasource, $collectionDecorator);
@@ -62,8 +68,11 @@ abstract class Repository
      * @param CollectionDecoratorInferface $collectionDecorator
      * @param EntityDecoratorInferface $entityDecorator
      */
-    public function __construct(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null)
-    {
+    public function __construct(
+        DatasourceInterface $datasource,
+        CollectionDecoratorInferface $collectionDecorator = null,
+        EntityDecoratorInferface $entityDecorator = null
+    ) {
         if (!isset($collectionDecorator)) {
             $collectionDecorator = new ArrayDecorator();
         }

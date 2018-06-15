@@ -25,8 +25,10 @@ class Wards extends Repository
      * @param EntityDecoratorInferface $entityDecorator
      * @return Wards
      */
-    public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null)
-    {
+    public static function createFromJson(
+        CollectionDecoratorInferface $collectionDecorator = null,
+        EntityDecoratorInferface $entityDecorator = null
+    ) {
         return self::getInstance(new Json(Json::WARDS_JSON), $collectionDecorator, $entityDecorator);
     }
 }

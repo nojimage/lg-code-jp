@@ -12,7 +12,7 @@ class DefaultEntityDecoratorTest extends TestCase
 {
 
     /**
-     * @covers Nojimage\LocalGovCode\Decorator\Entity\DefaultEntityDecorator::convert
+     * Nojimage\LocalGovCode\Decorator\Entity\DefaultEntityDecorator::convert
      */
     public function testConvert()
     {

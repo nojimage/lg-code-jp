@@ -55,7 +55,7 @@ class CityTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\City::validate
+     * Nojimage\LocalGovCode\City::validate
      * @dataProvider dataValidate
      */
     public function testValidate($message, $data, $expected)

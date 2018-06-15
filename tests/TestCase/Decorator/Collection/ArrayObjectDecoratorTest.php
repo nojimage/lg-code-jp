@@ -12,7 +12,7 @@ class ArrayObjectDecoratorTest extends TestCase
 {
 
     /**
-     * @covers Nojimage\LocalGovCode\Decorator\Collection\ArrayObjectProvider::convert
+     * Nojimage\LocalGovCode\Decorator\Collection\ArrayObjectDecorator::convert
      */
     public function testConvert()
     {

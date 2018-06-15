@@ -58,7 +58,7 @@ class WardTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Ward::validate
+     * Nojimage\LocalGovCode\Ward::validate
      * @dataProvider dataValidate
      */
     public function testValidate($message, $data, $expected)

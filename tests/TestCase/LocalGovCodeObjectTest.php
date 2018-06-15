@@ -41,7 +41,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::validate
+     * Nojimage\LocalGovCode\LocalGovCodeObject::validate
      * @dataProvider dataValidate
      */
     public function testValidate($message, $data, $expected)
@@ -84,7 +84,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::getCode
+     * Nojimage\LocalGovCode\LocalGovCodeObject::getCode
      */
     public function testGetCode()
     {
@@ -92,7 +92,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::getKana
+     * Nojimage\LocalGovCode\LocalGovCodeObject::getKana
      */
     public function testGetKana()
     {
@@ -100,7 +100,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::getName
+     * Nojimage\LocalGovCode\LocalGovCodeObject::getName
      */
     public function testGetName()
     {
@@ -108,7 +108,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::getType
+     * Nojimage\LocalGovCode\LocalGovCodeObject::getType
      */
     public function testGetType()
     {
@@ -116,7 +116,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::jsonSerialize
+     * Nojimage\LocalGovCode\LocalGovCodeObject::jsonSerialize
      */
     public function testJsonSerialize()
     {
@@ -165,7 +165,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::offsetSet
+     * Nojimage\LocalGovCode\LocalGovCodeObject::offsetSet
      * @expectedException LogicException
      * @expectedExceptionMessage LocalGovCodeObject is read only.
      */
@@ -175,7 +175,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::offsetUnset
+     * Nojimage\LocalGovCode\LocalGovCodeObject::offsetUnset
      * @expectedException LogicException
      * @expectedExceptionMessage LocalGovCodeObject is read only.
      */
@@ -185,7 +185,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::__set
+     * Nojimage\LocalGovCode\LocalGovCodeObject::__set
      * @expectedException LogicException
      * @expectedExceptionMessage LocalGovCodeObject is read only.
      */
@@ -195,7 +195,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::toArray
+     * Nojimage\LocalGovCode\LocalGovCodeObject::toArray
      */
     public function testToArray()
     {
@@ -210,8 +210,8 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::serialize
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::unserialize
+     * Nojimage\LocalGovCode\LocalGovCodeObject::serialize
+     * Nojimage\LocalGovCode\LocalGovCodeObject::unserialize
      */
     public function testSerialize()
     {
@@ -227,7 +227,7 @@ class LocalGovCodeObjectTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::camelize
+     * Nojimage\LocalGovCode\LocalGovCodeObject::camelize
      */
     public function testCamelize()
     {

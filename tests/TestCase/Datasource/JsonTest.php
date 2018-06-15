@@ -75,7 +75,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Datasource\Json::findByCode
+     * Nojimage\LocalGovCode\Datasource\Json::findByCode
      */
     public function testFindByCode()
     {
@@ -93,7 +93,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Datasource\Json::findByName
+     * Nojimage\LocalGovCode\Datasource\Json::findByName
      */
     public function testFindByName()
     {
@@ -111,7 +111,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Datasource\Json::find
+     * Nojimage\LocalGovCode\Datasource\Json::find
      */
     public function testFind()
     {
@@ -140,7 +140,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Datasource\Json::find
+     * Nojimage\LocalGovCode\Datasource\Json::find
      */
     public function testFindNotExists()
     {

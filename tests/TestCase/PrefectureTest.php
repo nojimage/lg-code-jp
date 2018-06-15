@@ -52,7 +52,7 @@ class PrefectureTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Prefecture::validate
+     * Nojimage\LocalGovCode\Prefecture::validate
      * @dataProvider dataValidate
      */
     public function testValidate($message, $data, $expected)
