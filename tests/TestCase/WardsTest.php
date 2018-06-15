@@ -68,7 +68,7 @@ class WardsTest extends TestCase
     /**
      * @covers Nojimage\LocalGovCode\Repository::setCollectionDecorator
      */
-    public function testsetCollectionDecorator()
+    public function testSetCollectionDecorator()
     {
         $results = $this->repository->findByName('北海道札幌市中央区');
         $this->assertInternalType('array', $results);
@@ -77,6 +77,25 @@ class WardsTest extends TestCase
 
         $results = $this->repository->findByName('北海道札幌市中央区');
         $this->assertInstanceOf('\ArrayObject', $results);
+    }
+
+    /**
+     * @covers Nojimage\LocalGovCode\Repository::setEntityDecorator
+     */
+    public function testSetEntityDecorator()
+    {
+        $decorator = $this
+            ->getMockBuilder('\Nojimage\LocalGovCode\Decorator\Entity\EntityDecoratorInferface')
+            ->setMethods(array('convert'))
+            ->getMock();
+
+        $decorator->expects($this->once())->method('convert')
+            ->willReturn(new \stdClass());
+
+        $this->repository->setEntityDecorator($decorator);
+
+        $result = $this->repository->getByName('北海道札幌市中央区');
+        $this->assertInstanceOf('\stdClass', $result);
     }
 
     /**

@@ -4,21 +4,13 @@ namespace Nojimage\LocalGovCode;
 
 use Nojimage\LocalGovCode\Datasource\Json;
 use Nojimage\LocalGovCode\Decorator\Collection\CollectionDecoratorInferface;
+use Nojimage\LocalGovCode\Decorator\Entity\EntityDecoratorInferface;
 
 /**
  * Prefectures
  */
 class Prefectures extends Repository
 {
-
-    /**
-     * @param array $data
-     * @return Prefecture
-     */
-    protected function convertToObject(array $data)
-    {
-        return new Prefecture($data);
-    }
 
     /**
      * @return string
@@ -30,10 +22,11 @@ class Prefectures extends Repository
 
     /**
      * @param CollectionDecoratorInferface $collectionDecorator
+     * @param EntityDecoratorInferface $entityDecorator
      * @return Prefectures
      */
-    public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null)
+    public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null)
     {
-        return self::getInstance(new Json(Json::PREFECTURES_JSON), $collectionDecorator);
+        return self::getInstance(new Json(Json::PREFECTURES_JSON), $collectionDecorator, $entityDecorator);
     }
 }

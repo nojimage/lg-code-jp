@@ -5,6 +5,8 @@ namespace Nojimage\LocalGovCode;
 use Nojimage\LocalGovCode\Datasource\DatasourceInterface;
 use Nojimage\LocalGovCode\Decorator\Collection\ArrayDecorator;
 use Nojimage\LocalGovCode\Decorator\Collection\CollectionDecoratorInferface;
+use Nojimage\LocalGovCode\Decorator\Entity\EntityDecoratorInferface;
+use Nojimage\LocalGovCode\Decorator\Entity\DefaultEntityDecorator;
 use Nojimage\LocalGovCode\Exception\CodeNotFoundException;
 use Nojimage\LocalGovCode\Exception\NameNotFoundException;
 
@@ -25,27 +27,30 @@ abstract class Repository
     private $collectionDecorator;
 
     /**
+     * @var EntityDecoratorInferface
+     */
+    private $entityDecorator;
+
+    /**
      * Create form Json datasource
      *
      * @param CollectionDecoratorInferface $collectionDecorator
+     * @param EntityDecoratorInferface $entityDecorator
      * @return Repository
      */
-    abstract public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null);
+    abstract public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null);
 
     /**
      * Create repository
      *
      * @param DatasourceInterface $datasource
      * @param CollectionDecoratorInferface $collectionDecorator
+     * @param EntityDecoratorInferface $entityDecorator
      * @return Repository
      */
-    public static function getInstance(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator = null)
+    public static function getInstance(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null)
     {
         $class = get_called_class();
-
-        if (!isset($collectionDecorator)) {
-            $collectionDecorator = new ArrayDecorator();
-        }
 
         return new $class($datasource, $collectionDecorator);
     }
@@ -54,11 +59,21 @@ abstract class Repository
      * constructor
      *
      * @param DatasourceInterface $datasource
+     * @param CollectionDecoratorInferface $collectionDecorator
+     * @param EntityDecoratorInferface $entityDecorator
      */
-    public function __construct(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator)
+    public function __construct(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator = null, EntityDecoratorInferface $entityDecorator = null)
     {
+        if (!isset($collectionDecorator)) {
+            $collectionDecorator = new ArrayDecorator();
+        }
+        if (!isset($entityDecorator)) {
+            $entityDecorator = new DefaultEntityDecorator();
+        }
+
         $this->setDatasource($datasource);
         $this->setCollectionDecorator($collectionDecorator);
+        $this->setEntityDecorator($entityDecorator);
     }
 
     /**
@@ -73,26 +88,29 @@ abstract class Repository
     }
 
     /**
-     * Set collection provider
+     * Set entity decorator
+     *
+     * @param EntityDecoratorInferface $entityDecorator
+     * @return void
+     */
+    public function setEntityDecorator(EntityDecoratorInferface $entityDecorator)
+    {
+        $this->entityDecorator = $entityDecorator;
+    }
+
+    /**
+     * Set collection decorator
      *
      * @param CollectionDecoratorInferface $collectionDecorator
      * @return void
      */
     public function setCollectionDecorator(CollectionDecoratorInferface $collectionDecorator)
     {
-        $this->collectionProvider = $collectionDecorator;
+        $this->collectionDecorator = $collectionDecorator;
     }
 
     /**
-     * Convert array to object
-     *
-     * @param array $data
-     * @return LocalGovCodeObjectInterface
-     */
-    abstract protected function convertToObject(array $data);
-
-    /**
-     * name field name when using findByName
+     * A name field name when using findByName
      *
      * @return string
      */
@@ -113,7 +131,7 @@ abstract class Repository
             throw new CodeNotFoundException;
         }
 
-        return $this->convertToObject($result);
+        return $this->entityDecorator->convert($result);
     }
 
     /**
@@ -131,7 +149,7 @@ abstract class Repository
             throw new NameNotFoundException;
         }
 
-        return $this->convertToObject($result);
+        return $this->entityDecorator->convert($result);
     }
 
     /**
@@ -195,17 +213,6 @@ abstract class Repository
     }
 
     /**
-     * Convert array to collection
-     *
-     * @param array $records
-     * @return mixed a Collection object
-     */
-    protected function convertCollection(array $records)
-    {
-        return $this->collectionProvider->convert($records);
-    }
-
-    /**
      * Find a objects
      *
      * @param array $conditions
@@ -214,9 +221,9 @@ abstract class Repository
     public function find(array $conditions)
     {
         $results = $this->ds->find($conditions);
-        $objects = array_map(array($this, 'convertToObject'), $results);
+        $objects = array_map(array($this->entityDecorator, 'convert'), $results);
 
-        return $this->convertCollection($objects);
+        return $this->collectionDecorator->convert($objects);
     }
 
     /**

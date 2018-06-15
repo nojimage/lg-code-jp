@@ -225,4 +225,14 @@ class LocalGovCodeObjectTest extends TestCase
 
         $this->assertSame($expected, $unserialized->toArray());
     }
+
+    /**
+     * @covers Nojimage\LocalGovCode\LocalGovCodeObject::camelize
+     */
+    public function testCamelize()
+    {
+        $this->assertSame('Name', LocalGovCodeObject::camelize('name'));
+        $this->assertSame('PrefName', LocalGovCodeObject::camelize('pref_name'));
+        $this->assertSame('VariableName', LocalGovCodeObject::camelize('variable__name'));
+    }
 }

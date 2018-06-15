@@ -113,7 +113,7 @@ class LocalGovCodeObject implements LocalGovCodeObjectInterface
      * @param string $name
      * @return string
      */
-    protected function camelize($name)
+    public static function camelize($name)
     {
         $parts = explode('_', $name);
 

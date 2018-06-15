@@ -68,7 +68,7 @@ class PrefecturesTest extends TestCase
     /**
      * @covers Nojimage\LocalGovCode\Repository::setCollectionDecorator
      */
-    public function testsetCollectionDecorator()
+    public function testSetCollectionDecorator()
     {
         $results = $this->repository->findByName('東京都');
         $this->assertInternalType('array', $results);
@@ -77,6 +77,25 @@ class PrefecturesTest extends TestCase
 
         $results = $this->repository->findByName('東京都');
         $this->assertInstanceOf('\ArrayObject', $results);
+    }
+
+    /**
+     * @covers Nojimage\LocalGovCode\Repository::setEntityDecorator
+     */
+    public function testSetEntityDecorator()
+    {
+        $decorator = $this
+            ->getMockBuilder('\Nojimage\LocalGovCode\Decorator\Entity\EntityDecoratorInferface')
+            ->setMethods(array('convert'))
+            ->getMock();
+
+        $decorator->expects($this->once())->method('convert')
+            ->willReturn(new \stdClass());
+
+        $this->repository->setEntityDecorator($decorator);
+
+        $result = $this->repository->getByName('東京都');
+        $this->assertInstanceOf('\stdClass', $result);
     }
 
     /**
