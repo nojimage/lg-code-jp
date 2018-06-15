@@ -1,11 +1,11 @@
 <?php
 
-namespace Nojimage\LocalGovCode\Collection;
+namespace Nojimage\LocalGovCode\Decorator\Collection;
 
 /**
  * convert to array
  */
-class ArrayProvider implements CollectionProviderInferface
+class ArrayDecorator implements CollectionDecoratorInferface
 {
 
     /**

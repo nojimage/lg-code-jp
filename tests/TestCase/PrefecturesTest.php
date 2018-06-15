@@ -2,7 +2,7 @@
 
 namespace Nojimage\LocalGovCode\TestCase;
 
-use Nojimage\LocalGovCode\Collection\ArrayObjectProvider;
+use Nojimage\LocalGovCode\Decorator\Collection\ArrayObjectDecorator;
 use Nojimage\LocalGovCode\Prefectures;
 use PHPUnit\Framework\TestCase;
 
@@ -66,14 +66,14 @@ class PrefecturesTest extends TestCase
     }
 
     /**
-     * @covers Nojimage\LocalGovCode\Repository::setCollectionProvider
+     * @covers Nojimage\LocalGovCode\Repository::setCollectionDecorator
      */
-    public function testSetCollectionProvider()
+    public function testsetCollectionDecorator()
     {
         $results = $this->repository->findByName('東京都');
         $this->assertInternalType('array', $results);
 
-        $this->repository->setCollectionProvider(new ArrayObjectProvider());
+        $this->repository->setCollectionDecorator(new ArrayObjectDecorator());
 
         $results = $this->repository->findByName('東京都');
         $this->assertInstanceOf('\ArrayObject', $results);

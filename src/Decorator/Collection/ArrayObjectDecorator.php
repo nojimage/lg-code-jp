@@ -1,13 +1,13 @@
 <?php
 
-namespace Nojimage\LocalGovCode\Collection;
+namespace Nojimage\LocalGovCode\Decorator\Collection;
 
 use ArrayObject;
 
 /**
  * convert to ArrayObject
  */
-class ArrayObjectProvider implements CollectionProviderInferface
+class ArrayObjectDecorator implements CollectionDecoratorInferface
 {
 
     /**

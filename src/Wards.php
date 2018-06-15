@@ -2,8 +2,8 @@
 
 namespace Nojimage\LocalGovCode;
 
-use Nojimage\LocalGovCode\Collection\CollectionProviderInferface;
 use Nojimage\LocalGovCode\Datasource\Json;
+use Nojimage\LocalGovCode\Decorator\Collection\CollectionDecoratorInferface;
 
 /**
  * Wards
@@ -29,11 +29,11 @@ class Wards extends Repository
     }
 
     /**
-     * @param CollectionProviderInferface $collectionProvider
+     * @param CollectionDecoratorInferface $collectionDecorator
      * @return Wards
      */
-    public static function createFromJson(CollectionProviderInferface $collectionProvider = null)
+    public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null)
     {
-        return self::getInstance(new Json(Json::WARDS_JSON), $collectionProvider);
+        return self::getInstance(new Json(Json::WARDS_JSON), $collectionDecorator);
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Nojimage\LocalGovCode;
 
-use Nojimage\LocalGovCode\Collection\ArrayProvider;
-use Nojimage\LocalGovCode\Collection\CollectionProviderInferface;
 use Nojimage\LocalGovCode\Datasource\DatasourceInterface;
+use Nojimage\LocalGovCode\Decorator\Collection\ArrayDecorator;
+use Nojimage\LocalGovCode\Decorator\Collection\CollectionDecoratorInferface;
 use Nojimage\LocalGovCode\Exception\CodeNotFoundException;
 use Nojimage\LocalGovCode\Exception\NameNotFoundException;
 
@@ -20,34 +20,34 @@ abstract class Repository
     private $ds;
 
     /**
-     * @var CollectionProviderInferface
+     * @var CollectionDecoratorInferface
      */
-    private $collectionProvider;
+    private $collectionDecorator;
 
     /**
      * Create form Json datasource
      *
-     * @param CollectionProviderInferface $collectionProvider
+     * @param CollectionDecoratorInferface $collectionDecorator
      * @return Repository
      */
-    abstract public static function createFromJson(CollectionProviderInferface $collectionProvider = null);
+    abstract public static function createFromJson(CollectionDecoratorInferface $collectionDecorator = null);
 
     /**
      * Create repository
      *
      * @param DatasourceInterface $datasource
-     * @param CollectionProviderInferface $collectionProvider
+     * @param CollectionDecoratorInferface $collectionDecorator
      * @return Repository
      */
-    public static function getInstance(DatasourceInterface $datasource, CollectionProviderInferface $collectionProvider = null)
+    public static function getInstance(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator = null)
     {
         $class = get_called_class();
 
-        if (!isset($collectionProvider)) {
-            $collectionProvider = new ArrayProvider();
+        if (!isset($collectionDecorator)) {
+            $collectionDecorator = new ArrayDecorator();
         }
 
-        return new $class($datasource, $collectionProvider);
+        return new $class($datasource, $collectionDecorator);
     }
 
     /**
@@ -55,10 +55,10 @@ abstract class Repository
      *
      * @param DatasourceInterface $datasource
      */
-    public function __construct(DatasourceInterface $datasource, CollectionProviderInferface $collectionProvider)
+    public function __construct(DatasourceInterface $datasource, CollectionDecoratorInferface $collectionDecorator)
     {
         $this->setDatasource($datasource);
-        $this->setCollectionProvider($collectionProvider);
+        $this->setCollectionDecorator($collectionDecorator);
     }
 
     /**
@@ -75,12 +75,12 @@ abstract class Repository
     /**
      * Set collection provider
      *
-     * @param CollectionProviderInferface $collectionProvider
+     * @param CollectionDecoratorInferface $collectionDecorator
      * @return void
      */
-    public function setCollectionProvider(CollectionProviderInferface $collectionProvider)
+    public function setCollectionDecorator(CollectionDecoratorInferface $collectionDecorator)
     {
-        $this->collectionProvider = $collectionProvider;
+        $this->collectionProvider = $collectionDecorator;
     }
 
     /**
