@@ -1,0 +1,3 @@
+- [ ] Combinded Repository(Prefecture/City/Ward)
+- [ ] PDO Datasource
+- [ ] Object oriented relational access (eg. Pref->cities(), City->prefecture())
